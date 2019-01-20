@@ -1,0 +1,23 @@
+{
+  "name": "shadowsocks_v2ray-plugin",
+  "description": "deploy to Heroku.",
+  "keywords": [
+    "v2ray",
+    "shadowsocks"
+  ],
+  "env": {
+    "PASSWORD": {
+      "description": "密码",
+      "value": "sspv2"
+    },
+    "METHOD": {
+      "description": "加密",
+      "value": "aes-128-gcm"
+    },
+    "DNS": {
+      "description": "DNS",
+      "value": "1.1.1.1"
+    }
+  },
+  "stack": "container"
+}

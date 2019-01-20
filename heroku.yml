@@ -1,0 +1,6 @@
+build:
+  docker:
+    web: Dockerfile
+  config:
+    V2RAY-PLUGIN_VER: 1.0
+    V2RAY-PLUGIN_N  : 8cea1a3
