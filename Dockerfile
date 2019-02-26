@@ -10,8 +10,8 @@ RUN set -ex \
 		&& apt-get install -y --no-install-recommends wget tar ca-certificates \
 		&& apt-get -t stretch-backports install -y --no-install-recommends shadowsocks-libev \
 		&& cd /tmp \
-		&& wget -qO v2ray-plugin-linux-amd64-8cea1a3.tar.gz https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.0/v2ray-plugin-linux-amd64-8cea1a3.tar.gz \
-		&& tar zxf v2ray-plugin-linux-amd64-8cea1a3.tar.gz \
+		&& wget -qO v2ray-plugin-linux-amd64-v1.1.0.tar.gz https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.1.0/v2ray-plugin-linux-amd64-v1.1.0.tar.gz \
+		&& tar zxf v2ray-plugin-linux-amd64-v1.1.0.tar.gz \
 		&& cp v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin \
 		&& rm -f v2ray-plugin* \
 		&& rm -rf /var/lib/apt/lists/*
