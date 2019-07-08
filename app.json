@@ -10,6 +10,11 @@
       "description": "密码",
       "value": "sspv2"
     },
+    "SS_Path": {
+      "description": "路径",
+      "value": "/sspath"
+    },
+
     "METHOD": {
       "description": "加密",
       "value": "aes-128-gcm"
