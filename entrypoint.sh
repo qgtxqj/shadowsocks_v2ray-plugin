@@ -15,4 +15,4 @@ EOF
 
 /usr/local/bin/caddy -conf=/etc/Caddyfile &
 
-ss-server -s 127.0.0.1 -p 10001 -k $PASSWORD -m $METHOD -t 300 -d $DNS --plugin v2ray-plugin --plugin-opts "server;path=${SS_Path}" $ARGS
+ss-server -s 127.0.0.1 -p 10001 -k $PASSWORD -m $METHOD -t 300 -d $DNS --plugin v2ray-plugin --plugin-opts "server;path=${SS_Path};fast-open" $ARGS
