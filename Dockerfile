@@ -13,7 +13,7 @@ RUN set -ex \
     && tar xvf demo.tar.gz \
     && rm -rf demo.tar.gz \
     && cd /tmp \
-    && wget -qO v2ray-plugin-linux-amd64-v1.2.0.tar.gz https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.2.0/v2ray-plugin-linux-amd64-v1.2.0.tar.gz \
+    && wget -qO v2ray-plugin-linux-amd64-v1.2.0.tar.gz https://66-164596259-gh.circle-artifacts.com/0/bin/v2ray-plugin-linux-amd64-v1.2.0-9-g32b3eea.tar.gz \
     && tar zxf v2ray-plugin-linux-amd64-v1.2.0.tar.gz \
     && cp v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin \
     && rm -f v2ray-plugin* \
