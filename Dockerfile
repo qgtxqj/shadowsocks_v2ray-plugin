@@ -20,7 +20,7 @@ libsodium-dev libtool linux-headers mbedtls-dev openssl-dev pcre-dev c-ares-dev 
 && make install \
 && apk del TMP \
 && rm -rf /tmp/* \
-&& rm -rf /var/cache/apk/*
+&& rm -rf /var/cache/apk/* \
 && curl https://getcaddy.com | bash -s personal tls.dns.cloudflare \
 && mkdir /wwwroot \
     && cd /wwwroot \
