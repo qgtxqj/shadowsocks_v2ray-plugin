@@ -4,7 +4,7 @@ FROM alpine:latest
 ENV SS_GIT_PATH="https://github.com/shadowsocks/shadowsocks-libev"
 
 #Download applications
-RUN apk --update add --no-cache curl ca-certificates libcrypto1.1 libev libsodium mbedtls pcre c-ares \
+RUN apk --update add --no-cache caddy ca-certificates libcrypto1.1 libev libsodium mbedtls pcre c-ares \
 && rm -rf /etc/localtime \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && apk add --no-cache --virtual TMP git autoconf automake make build-base zlib-dev gettext-dev asciidoc xmlto libpcre32 libev-dev \
@@ -21,7 +21,6 @@ libsodium-dev libtool linux-headers mbedtls-dev openssl-dev pcre-dev c-ares-dev 
 && apk del TMP \
 && rm -rf /tmp/* \
 && rm -rf /var/cache/apk/* \
-&& curl https://getcaddy.com | bash -s personal tls.dns.cloudflare \
 && mkdir /wwwroot \
     && cd /wwwroot \
     && wget --no-check-certificate -qO 'demo.tar.gz' "https://github.com/xianren78/v2ray-heroku/raw/master/demo.tar.gz" \
