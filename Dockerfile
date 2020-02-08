@@ -4,7 +4,7 @@ FROM alpine:latest
 ENV SS_GIT_PATH="https://github.com/shadowsocks/shadowsocks-libev"
 
 #Download applications
-RUN apk --update add --no-cache ca-certificates libcrypto1.1 libev libsodium mbedtls pcre c-ares \
+RUN apk --update add --no-cache curl ca-certificates libcrypto1.1 libev libsodium mbedtls pcre c-ares \
 && rm -rf /etc/localtime \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && apk add --no-cache --virtual TMP git autoconf automake make build-base zlib-dev gettext-dev asciidoc xmlto libpcre32 libev-dev \
