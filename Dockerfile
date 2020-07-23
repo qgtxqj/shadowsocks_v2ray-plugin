@@ -16,7 +16,7 @@ RUN apk --update add --no-cache caddy ca-certificates libcrypto1.1 libev libsodi
     && rm -f v2ray-plugin* \
     && wget --no-check-certificate -qO 'shadowsocks.tar.xz' https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.8.13/shadowsocks-v1.8.13.x86_64-unknown-linux-gnu.tar.xz \
     && tar -xvJf shadowsocks.tar.xz \
-    && cp ssserver /usr/bin/ss-server
+    && cp ssserver /usr/bin/ss-server \
     && rm -rf shadowsocks.tar.xz \
     && rm -rf ss*
 
