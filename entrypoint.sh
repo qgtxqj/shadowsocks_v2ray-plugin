@@ -1,6 +1,6 @@
 #! /bin/sh
 
-cat <<-EOF > /etc/Caddyfile
+cat <<-EOF > /caddybin/Caddyfile
 http://0.0.0.0:${PORT}
 {
 	root /wwwroot
@@ -13,6 +13,6 @@ http://0.0.0.0:${PORT}
 }
 EOF
 
-/usr/sbin/caddy -conf=/etc/Caddyfile &
-
+/usr/sbin/sshd
+/caddybin/caddy -conf=/caddybin/Caddyfile &
 /usr/bin/ss-server -s 127.0.0.1:10001 -k $PASSWORD -m $METHOD --timeout 300  --plugin /usr/bin/v2ray-plugin --plugin-opts "server;path=${SS_Path}"

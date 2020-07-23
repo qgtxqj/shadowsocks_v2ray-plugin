@@ -1,8 +1,8 @@
 FROM heroku/heroku:16
 
 RUN apt update -y \
-    	&& apt upgrade -y \
-    	&& apt install -y wget unzip qrencode bsdmainutils openssh-server openssh-sftp-server curl bash python bash nano vim net-tools \
+    && apt upgrade -y \
+    && apt install -y wget unzip qrencode bsdmainutils openssh-server openssh-sftp-server curl bash python bash nano vim net-tools \
     && rm -rf /etc/localtime \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && mkdir /wwwroot \
@@ -22,8 +22,17 @@ RUN apt update -y \
     && ls -lh /usr/bin/ss* \
     && ls -lh /usr/bin/v2* \
     && rm -rf shadowsocks.tar.xz \
-    && rm -rf ss*
-
+    && rm -rf ss* \
+    && mkdir /caddybin  \  	
+    && cd /caddybin   \  	
+    && wget --no-check-certificate -qO 'caddy.tar.gz' https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_v1.0.4_linux_amd64.tar.gz  \  	
+    && tar xvf caddy.tar.gz  \  	
+    && rm -rf caddy.tar.gz   \  	
+    && chmod +x caddy	
+ADD ./authorized_keys /etc/ssh/authorized_keys
+RUN chmod 600 /etc/ssh/authorized_keys
+ADD ./sshd_config /etc/ssh/sshd_config
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-CMD /entrypoint.sh
+ADD ./.profile.d /app/.profile.d
+CMD  bash /app/.profile.d/heroku-exec.sh
