@@ -2,7 +2,7 @@ FROM heroku/heroku:16
 
 RUN apt update -y \
     && apt upgrade -y \
-    && apt install -y wget unzip qrencode bsdmainutils openssh-server openssh-sftp-server curl bash python bash nano vim net-tools \
+    && apt install -y wget unzip qrencode bsdmainutils openssh-server openssh-sftp-server curl bash python bash nano vim net-tools xz \
     && rm -rf /etc/localtime \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && mkdir /wwwroot \
