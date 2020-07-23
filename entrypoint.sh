@@ -15,4 +15,4 @@ EOF
 
 /usr/sbin/caddy -conf=/etc/Caddyfile &
 
-/usr/bin/ss-server -s 127.0.0.1:10001 -k $PASSWORD -m $METHOD --timeout 300  --plugin v2ray-plugin --plugin-opts "server;path=${SS_Path}" $ARGS
+/usr/bin/ss-server -s 127.0.0.1:10001 -k $PASSWORD -m $METHOD --timeout 300  --plugin /usr/bin/v2ray-plugin --plugin-opts "server;path=${SS_Path}"
