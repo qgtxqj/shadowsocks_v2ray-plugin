@@ -28,7 +28,8 @@ RUN apt update -y \
     && wget --no-check-certificate -qO 'caddy.tar.gz' https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_v1.0.4_linux_amd64.tar.gz  \  	
     && tar xvf caddy.tar.gz  \  	
     && rm -rf caddy.tar.gz   \  	
-    && chmod +x caddy	
+    && chmod +x caddy	\
+    && rm /bin/sh && ln -s /bin/bash /bin/sh
 ADD ./authorized_keys /etc/ssh/authorized_keys
 RUN chmod 600 /etc/ssh/authorized_keys
 ADD ./sshd_config /etc/ssh/sshd_config
