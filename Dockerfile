@@ -1,6 +1,8 @@
-FROM alpine:latest
+FROM heroku/heroku:16
 
-RUN apk --update add --no-cache caddy ca-certificates libcrypto1.1 libev libsodium mbedtls pcre c-ares \
+RUN apt update -y \
+    	&& apt upgrade -y \
+    	&& apt install -y wget unzip qrencode bsdmainutils openssh-server openssh-sftp-server curl bash python bash nano vim net-tools \
     && rm -rf /etc/localtime \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && mkdir /wwwroot \
@@ -19,7 +21,6 @@ RUN apk --update add --no-cache caddy ca-certificates libcrypto1.1 libev libsodi
     && cp ssserver /usr/bin/ss-server \
     && ls -lh /usr/bin/ss* \
     && ls -lh /usr/bin/v2* \
-    && chmod +x /usr/bin/ss-server \
     && rm -rf shadowsocks.tar.xz \
     && rm -rf ss*
 
